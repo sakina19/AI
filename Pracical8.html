@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+      
+<head>
+    <title>
+        Creating Search Bar using HTML
+        CSS and Javascript
+    </title>
+      
+    <style>
+        #searchbar{
+    margin-left: 15%;
+    padding:15px;
+    border-radius: 10px;
+  }
+
+  input[type=text] {
+     width: 30%;
+     -webkit-transition: width 0.15s ease-in-out;
+     transition: width 0.15s ease-in-out;
+  }
+
+  /* When the input field gets focus,
+       change its width to 100% */
+  input[type=text]:focus {
+    width: 70%;
+  }
+
+ #list{
+   font-size:  1.5em;
+   margin-left: 90px;
+  }
+
+.flowers{
+  display: list-item;    
+ } 
+    </style>
+</head>
+  
+<body>
+      
+    <!-- input tag -->
+    <input id="searchbar" onkeyup="search_flower()" type="text"
+        name="search" placeholder="Search flowers..">
+      
+    <!-- ordered list -->
+    <ol id='list'>
+        <li class="flowers">Rose</li>
+        <li class="flowers">Lotus</li>
+        <li class="flowers">Tulip</li>
+        <li class="flowers">Lily</li>
+        <li class="flowers">Marigold</li>
+        <li class="flowers">Sunflower</li>
+        <li class="flowers">Lavender</li>
+        <li class="flowers">Daisy</li>
+        <li class="flowers">Hibiscus</li>
+        <li class="flowers">Jasmine</li>
+        <li class="flowers">Orchid</li>
+    </ol>
+      
+    
+    <script>
+        function search_flower() {
+    let input = document.getElementById('searchbar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('flowers');
+      
+    for (i = 0; i < x.length; i++) { 
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="list-item";                 
+        }
+    }
+}
+    </script>
+</body>
+</html>
+
